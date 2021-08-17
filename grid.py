@@ -1,4 +1,5 @@
 import pygame
+
 pygame.init()
 pygame.display.set_caption('A* Algorithm')
 blocksize = 50
@@ -12,13 +13,12 @@ matrix = [[1, 1, 0, 1],
           [1, 1, 0, 1],
           [1, 1, 1, 1]]
 
-
 not_traversable = []
-
-
 
 # To declare a multidimensional list of zeros in python you have to use a list comprehension like this:
 matrix2 = [[0 for col in range(4)] for row in range(4)]
+
+
 # to avoid reference sharing between the rows.
 
 
@@ -26,7 +26,7 @@ def createSquare(x, y, color):
     pygame.draw.rect(gridDisplay, color, [x, y, blocksize, blocksize])
 
 
-def visualizeGrid():
+def initializeGrid():
     y = 0
     for row in matrix2:
         x = 0
@@ -39,6 +39,7 @@ def visualizeGrid():
         y += blocksize
     pygame.display.update()
 
+
 def set_Cell_untravsersable(mouse_click_event):
     # determine mouse position
     _mpos_x, _mpos_y = mouse_click_event.pos
@@ -50,7 +51,7 @@ def set_Cell_untravsersable(mouse_click_event):
     not_traversable.append(coordinate)
 
 
-visualizeGrid()  # call the function
+initializeGrid()
 
 running = True
 while running:
