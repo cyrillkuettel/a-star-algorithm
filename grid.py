@@ -12,10 +12,13 @@ matrix = [[1, 1, 0, 1],
           [1, 1, 0, 1],
           [1, 1, 1, 1]]
 
+
+not_traversable = []
+
+
+
 # To declare a multidimensional list of zeros in python you have to use a list comprehension like this:
 matrix2 = [[0 for col in range(4)] for row in range(4)]
-
-
 # to avoid reference sharing between the rows.
 
 
@@ -36,6 +39,16 @@ def visualizeGrid():
         y += blocksize
     pygame.display.update()
 
+def set_Cell_untravsersable(mouse_click_event):
+    # determine mouse position
+    _mpos_x, _mpos_y = mouse_click_event.pos
+    # determine cell number
+    coordinate = _mpos_x // blocksize, _mpos_y // blocksize
+    rect = pygame.Rect(coordinate[0] * blocksize, coordinate[1] * blocksize,
+                       blocksize, blocksize)
+    pygame.draw.rect(gridDisplay, BLACK, rect)
+    not_traversable.append(coordinate)
+
 
 visualizeGrid()  # call the function
 
@@ -45,14 +58,5 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print("got into event")
-            # determine mouse position
-            mpos_x, mpos_y = event.pos
-            # determine cell number
-            coord = mpos_x // blocksize, mpos_y // blocksize
-            print("coord = " + str(coord))
-
-            rect = pygame.Rect(coord[0] * blocksize, coord[1] * blocksize,
-                               blocksize, blocksize)
-            pygame.draw.rect(gridDisplay, BLACK, rect)
+            set_Cell_untravsersable(event)
         pygame.display.update()
