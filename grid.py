@@ -11,6 +11,9 @@ pygame.display.get_surface().fill((200, 100, 200))  # background
 # Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0,128,0)
+
 
 not_traversable = []
 """
@@ -65,9 +68,9 @@ def initializeGrid():
     pygame.display.update()
 
 
-def compute_Rectangle_From_MousePosition(event):
+def compute_Rectangle_From_MousePosition(mouse_Clicked_Event):
     # determine mouse position
-    _mpos_x, _mpos_y = event.pos
+    _mpos_x, _mpos_y = mouse_Clicked_Event.pos
     # determine cell number
     coordinate = _mpos_x // blocksize, _mpos_y // blocksize
     rect = pygame.Rect(coordinate[0] * blocksize, coordinate[1] * blocksize,
@@ -75,8 +78,8 @@ def compute_Rectangle_From_MousePosition(event):
     return rect, coordinate
 
 
-def set_start_Point(event):
-    rect, coordinate = compute_Rectangle_From_MousePosition(event)
+def set_start_Point(start_point_Event):
+    rect, coordinate = compute_Rectangle_From_MousePosition(start_point_Event)
     pygame.draw.rect(gridDisplay, BLACK, rect)
     # This is kind of not very pretty.. I use two data structures, creating redundancy.
     not_traversable.append(coordinate)
@@ -111,4 +114,11 @@ if __name__ == "__main__":
                     set_Cell_untraversable(event)
                 if event.button == 3:  # right click
                     count_right_clicks += 1
+                    if count_right_clicks == 1:
+                        set_start_Point(event)
+                        print("Setting start Point.")
+
             pygame.display.update()
+        if count_right_clicks == 2:
+            # Start- and endpoint set. Start the Algorithm. . .
+            print("starting - ")
