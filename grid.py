@@ -12,8 +12,7 @@ pygame.display.get_surface().fill((200, 100, 200))  # background
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
-GREEN = (0,128,0)
-
+GREEN = (0, 128, 0)
 
 not_traversable = []
 """
@@ -99,6 +98,13 @@ def set_Cell_untraversable(mouse_click_event):
     matrix2[coordinate[0]][coordinate[1]] = -1
 
 
+def set_end_Point(end_point_Event):
+    rect, coordinate = compute_Rectangle_From_MousePosition(end_point_Event)
+    pygame.draw.rect(gridDisplay, BLACK, rect)
+    not_traversable.append(coordinate)
+    matrix2[coordinate[0]][coordinate[1]] = -1
+
+
 if __name__ == "__main__":
     initializeGrid()
 
@@ -117,6 +123,8 @@ if __name__ == "__main__":
                     if count_right_clicks == 1:
                         set_start_Point(event)
                         print("Setting start Point.")
+                    if count_right_clicks == 2:
+                        set_end_Point(event)
 
             pygame.display.update()
         if count_right_clicks == 2:
