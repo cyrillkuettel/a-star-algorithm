@@ -21,6 +21,10 @@ matrix2 = [[0 for col in range(NUMBER_OF_BOXES)] for row in range(NUMBER_OF_BOXE
 # to avoid reference sharing between the rows.
 """
 
+
+"""
+Saved this landscape
+"""
 matrix2 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -46,7 +50,9 @@ matrix2 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+print(matrix2)
 matrix2 = list(map(list, zip(*matrix2)))
+print(matrix2)
 
 
 def createSquare(x, y, color):
@@ -59,9 +65,9 @@ def initializeGrid():
         x = 0
         for item in row:
             if item == 0:
-                createSquare(x, y, (255, 255, 255))
+                createSquare(x, y, WHITE)
             else:
-                createSquare(x, y, (0, 0, 0))
+                createSquare(x, y, BLACK)
             x += blocksize
         y += blocksize
     pygame.display.update()
@@ -93,7 +99,6 @@ def set_Cell_untraversable(mouse_click_event):
     rect = pygame.Rect(coordinate[0] * blocksize, coordinate[1] * blocksize,
                        blocksize, blocksize)
     pygame.draw.rect(gridDisplay, BLACK, rect)
-    # This is kind of not very pretty.. I use two data structures, creating redundancy
     not_traversable.append(coordinate)
     matrix2[coordinate[0]][coordinate[1]] = -1
 
@@ -124,6 +129,7 @@ if __name__ == "__main__":
                         set_start_Point(event)
                         print("Setting start Point.")
                     if count_right_clicks == 2:
+                        print("Setting end Point.")
                         set_end_Point(event)
 
             pygame.display.update()
