@@ -15,15 +15,7 @@ RED = (255, 0, 0)
 GREEN = (0, 128, 0)
 
 not_traversable = []
-"""
-# To declare a multidimensional list of zeros in python you have to use a list comprehension like this:
-matrix2 = [[0 for col in range(NUMBER_OF_BOXES)] for row in range(NUMBER_OF_BOXES)]
-# to avoid reference sharing between the rows.
-"""
 
-"""
-Saved this landscape
-"""
 matrix2 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
