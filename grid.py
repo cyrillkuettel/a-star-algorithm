@@ -47,7 +47,7 @@ print(matrix2)
 
 
 def initializeGrid():
-    linesize = 20
+    linesize = 20  # Later, introduce this, so you can see the walls between the grids.
 
     y = 0
     for row in matrix2:
@@ -112,6 +112,8 @@ if __name__ == "__main__":
 
     running = True
     Algo_is_running = False
+    # I think I have to introduce another boolean value.
+    # It's probably necessary, because I have to call the A* algorithm function in the Loop only once.
 
     count_right_clicks = 0
 
@@ -121,7 +123,7 @@ if __name__ == "__main__":
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1 and not Algo_is_running:  # left click, and prevent click during execution phase
-                    set_Cell_untraversable(event)
+                    set_Cell_untraversable(event)  # creating a block in the grid.
                 if event.button == 3:  # right click
                     count_right_clicks += 1
                     if count_right_clicks == 1:
