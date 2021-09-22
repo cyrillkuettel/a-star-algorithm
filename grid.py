@@ -42,7 +42,7 @@ matrix2 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 print(matrix2)
-matrix2 = list(map(list, zip(*matrix2)))
+matrix2 = list(map(list, zip(*matrix2))) # rotate, so
 print(matrix2)
 
 
@@ -105,6 +105,13 @@ def set_end_Point(end_point_Event):
     pygame.draw.rect(gridDisplay, GREEN, rect)
     not_traversable.append(coordinate)
     matrix2[coordinate[0]][coordinate[1]] = -1
+
+
+# gonna write a function to predict the h-cost and G-cost
+# G-cost = distance from starting node.
+# H-cost = distance from end node.
+
+#def calculate_Cost():
 
 
 if __name__ == "__main__":
