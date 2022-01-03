@@ -47,8 +47,8 @@ print(matrix2)
 
 
 def initializeGrid():
-    linesize = 20  # Later, introduce this, so you can see the walls between the grids.
-
+    linesize = 20  # Later introduce this, so you can see the walls between the grids. Right now I want to focus on
+    # functionality, design can come later
     y = 0
     for row in matrix2:
         x = 0

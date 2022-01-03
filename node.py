@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Square:
+class node:
     def __init__(self):
         pass
 
