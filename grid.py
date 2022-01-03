@@ -42,7 +42,7 @@ matrix2 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 print(matrix2)
-matrix2 = list(map(list, zip(*matrix2))) # rotate, so
+matrix2 = list(map(list, zip(*matrix2)))  # rotate, so
 print(matrix2)
 
 
@@ -111,16 +111,14 @@ def set_end_Point(end_point_Event):
 # G-cost = distance from starting node.
 # H-cost = distance from end node.
 
-#def calculate_Cost():
+# def calculate_Cost():
 
 
 if __name__ == "__main__":
     initializeGrid()
 
     running = True
-    Algo_is_running = False
-    # I think I have to introduce another boolean value.
-    # It's probably necessary, because I have to call the A* algorithm function in the Loop only once.
+    search_started = False
 
     count_right_clicks = 0
 
@@ -129,7 +127,7 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1 and not Algo_is_running:  # left click, and prevent click during execution phase
+                if event.button == 1 and not search_started:  # left click, and prevent click during execution phase
                     set_Cell_untraversable(event)  # creating a block in the grid.
                 if event.button == 3:  # right click
                     count_right_clicks += 1
@@ -141,7 +139,7 @@ if __name__ == "__main__":
                         set_end_Point(event)
             pygame.display.update()
         if count_right_clicks == 2:
-            # Start- and endpoint set. Start the Algorithm. . .
-            Algo_is_running = True
-
-            print("starting - ")
+            # Start- and endpoint set. This means we can start the actual alorithm.
+            search_started = True
+            print("starting search ")
+            # run the algorithm
