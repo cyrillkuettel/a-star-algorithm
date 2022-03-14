@@ -1,4 +1,4 @@
-# a-star-algorith
+# a-star-algorithm
 
 This is a project I'm writing to visualize the infamous search algorithm A*. 
 
