@@ -5,4 +5,4 @@ This is a little project I'm working on to visualize [A* search algorithm.](http
 All nodes are stored in memory, which sets a limit. 
 
 ## Development
-It's an ongoing project. 
+Development is still ongoing. 
