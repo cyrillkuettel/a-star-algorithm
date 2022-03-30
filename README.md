@@ -6,3 +6,7 @@ All nodes are stored in memory, which sets a limit.
 
 ## Development
 Development is still ongoing. 
+
+## Inspiration
+The idea came to my mind after watching this: 
+https://www.youtube.com/watch?v=-L-WgKMFuhE
