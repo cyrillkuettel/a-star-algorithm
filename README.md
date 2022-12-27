@@ -6,6 +6,12 @@ All nodes are stored in memory, which sets a limit.
 
 ## Development
 Development is still ongoing. 
+## Setup
+```bash
+ python3.11 -m  venv venv 
+ source venv/bin/activate
+ pip install -r requirements.txt # or:  `pip install pygame --pre`
+```
 
 ## Inspiration
 The idea came to my mind after watching this: 
